@@ -32,13 +32,16 @@
             this.btnFinish = new System.Windows.Forms.Button();
             this.txtAnswer = new System.Windows.Forms.TextBox();
             this.lblVerb = new System.Windows.Forms.Label();
+            this.txtMeaning = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnStart
             // 
-            this.btnStart.Location = new System.Drawing.Point(111, 252);
+            this.btnStart.Location = new System.Drawing.Point(160, 312);
             this.btnStart.Name = "btnStart";
-            this.btnStart.Size = new System.Drawing.Size(127, 75);
+            this.btnStart.Size = new System.Drawing.Size(138, 87);
             this.btnStart.TabIndex = 0;
             this.btnStart.Text = "EMPEZAR";
             this.btnStart.UseVisualStyleBackColor = true;
@@ -46,9 +49,9 @@
             // 
             // btnFinish
             // 
-            this.btnFinish.Location = new System.Drawing.Point(308, 252);
+            this.btnFinish.Location = new System.Drawing.Point(440, 312);
             this.btnFinish.Name = "btnFinish";
-            this.btnFinish.Size = new System.Drawing.Size(119, 75);
+            this.btnFinish.Size = new System.Drawing.Size(134, 91);
             this.btnFinish.TabIndex = 1;
             this.btnFinish.Text = "TERMINAR";
             this.btnFinish.UseVisualStyleBackColor = true;
@@ -57,7 +60,7 @@
             // txtAnswer
             // 
             this.txtAnswer.Font = new System.Drawing.Font("Courier New", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAnswer.Location = new System.Drawing.Point(111, 143);
+            this.txtAnswer.Location = new System.Drawing.Point(190, 199);
             this.txtAnswer.Name = "txtAnswer";
             this.txtAnswer.Size = new System.Drawing.Size(316, 38);
             this.txtAnswer.TabIndex = 2;
@@ -74,11 +77,43 @@
             this.lblVerb.Text = "label1";
             this.lblVerb.Visible = false;
             // 
+            // txtMeaning
+            // 
+            this.txtMeaning.Font = new System.Drawing.Font("Courier New", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMeaning.Location = new System.Drawing.Point(190, 129);
+            this.txtMeaning.Name = "txtMeaning";
+            this.txtMeaning.Size = new System.Drawing.Size(316, 38);
+            this.txtMeaning.TabIndex = 4;
+            this.txtMeaning.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtMeaning_KeyDown);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Courier New", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(33, 209);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(131, 21);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "PAST SIMPLE";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Courier New", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(77, 139);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(87, 21);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "MEANING";
+            // 
             // Verbos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(562, 396);
+            this.ClientSize = new System.Drawing.Size(700, 491);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.txtMeaning);
             this.Controls.Add(this.lblVerb);
             this.Controls.Add(this.txtAnswer);
             this.Controls.Add(this.btnFinish);
@@ -96,6 +131,9 @@
         private System.Windows.Forms.Button btnFinish;
         private System.Windows.Forms.TextBox txtAnswer;
         private System.Windows.Forms.Label lblVerb;
+        private System.Windows.Forms.TextBox txtMeaning;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }
 

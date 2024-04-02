@@ -67,31 +67,37 @@ namespace VerbosIrregulares
 
         private void CheckAnswer(string answer)
         {
-            // Verifica si la respuesta del usuario es correcta
+            // Verifica si ambas respuestas del usuario son correctas
             Verb currentVerb = verbs[currentVerbIndex];
-            if (answer.ToLower() == currentVerb.SimplePast.ToLower())
+            bool simplePastCorrect = txtAnswer.Text.ToLower() == currentVerb.SimplePast.ToLower();
+            bool meaningCorrect = txtMeaning.Text.ToLower() == currentVerb.Meaning.ToLower();
+
+            if (simplePastCorrect && meaningCorrect)
             {
-                MessageBox.Show("¡Correcto!");
+                MessageBox.Show("¡Ambas respuestas son correctas!");
                 correctAnswers++;
                 attempts = 0;
                 ShowRandomVerb();
-                txtAnswer.Clear();
+                ClearTextFields();
+                txtMeaning.Focus();
             }
             else
             {
                 attempts++;
                 if (attempts == 3)
                 {
-                    MessageBox.Show($"Respuesta incorrecta. La respuesta correcta es: {currentVerb.SimplePast}");
+                    MessageBox.Show($"Respuestas incorrectas. La respuesta correcta es: {currentVerb.SimplePast} - {currentVerb.Meaning}");
                     incorrectAnswers++;
                     attempts = 0;
                     ShowRandomVerb();
-                    txtAnswer.Clear();
+                    ClearTextFields();
+                    txtMeaning.Focus();
                 }
                 else
                 {
                     MessageBox.Show("ERROR");
-                    txtAnswer.Clear();
+                    ClearTextFields();
+                    txtMeaning.Focus();
                 }
             }
         }
@@ -103,6 +109,7 @@ namespace VerbosIrregulares
             btnStart.Enabled = false;
             txtAnswer.Enabled = true;
             txtAnswer.Visible = true;
+            txtMeaning.Enabled = true;
             btnFinish.Enabled = true;
             lblVerb.Visible = true;
         }
@@ -123,6 +130,21 @@ namespace VerbosIrregulares
             {
                 CheckAnswer(txtAnswer.Text);
             }
+        }
+
+        private void txtMeaning_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txtAnswer.Focus();
+            }
+        }
+
+        private void ClearTextFields()
+        {
+            // Limpia los TextBox
+            txtAnswer.Clear();
+            txtMeaning.Clear();
         }
     }
 
