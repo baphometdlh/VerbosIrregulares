@@ -30,6 +30,7 @@ namespace VerbosIrregulares
             usedIndices = new HashSet<int>();
             totalVerbs = verbs.Count;
             verbsShown = 0;
+            labelTotal.Text = "Cantidad total de verbos: " + totalVerbs.ToString();
             labelCantidadVerbos.Text = "0";
             labelCantidadAciertos.Text = "0";
             labelCantidadFallos.Text = "0";
@@ -44,13 +45,14 @@ namespace VerbosIrregulares
                 // Abre el archivo Excel usando EPPlus
                 string excelPath = @"..\..\..\excel\verbosIrregulares.xlsx";
                 FileInfo excelFile = new FileInfo(excelPath);
+
                 using (ExcelPackage package = new ExcelPackage(excelFile))
                 {
                     ExcelWorksheet worksheet = package.Workbook.Worksheets["COMPLETO"];
                     int rowCount = worksheet.Dimension.Rows;
                     verbs = new List<Verb>();
 
-                    for (int row = 2; row <= 48; row++)
+                    for (int row = 2; row <= rowCount; row++)
                     {
                         Verb verb = new Verb
                         {
@@ -66,7 +68,7 @@ namespace VerbosIrregulares
             catch (Exception e)
             {
 
-                MessageBox.Show("algún problema cargando el excel", e.Message);
+                MessageBox.Show("algún problema cargando el excel: " + e.Message);
             }
 
         }
@@ -102,7 +104,7 @@ namespace VerbosIrregulares
             catch (Exception e)
             {
 
-                MessageBox.Show("Problema a la hora de mostrar un verbo", e.Message);
+                MessageBox.Show("Problema a la hora de mostrar un verbo: " +  e.Message);
             }
 
         }
@@ -174,7 +176,7 @@ namespace VerbosIrregulares
             }
             catch (Exception e)
             {
-                MessageBox.Show("Problema a la hora de verificar las respuestas", e.Message);
+                MessageBox.Show("Problema a la hora de verificar las respuestas: " + e.Message);
             }
             
 
@@ -222,6 +224,11 @@ namespace VerbosIrregulares
             // Limpia los TextBox
             txtAnswer.Clear();
             txtMeaning.Clear();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 

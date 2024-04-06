@@ -43,6 +43,8 @@
             this.labelCantidadVerbos = new System.Windows.Forms.Label();
             this.labelCantidadAciertos = new System.Windows.Forms.Label();
             this.labelCantidadFallos = new System.Windows.Forms.Label();
+            this.labelTotal = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -186,11 +188,33 @@
             this.labelCantidadFallos.TabIndex = 12;
             this.labelCantidadFallos.Text = "label5";
             // 
+            // labelTotal
+            // 
+            this.labelTotal.AutoSize = true;
+            this.labelTotal.Location = new System.Drawing.Point(618, 45);
+            this.labelTotal.Name = "labelTotal";
+            this.labelTotal.Size = new System.Drawing.Size(44, 16);
+            this.labelTotal.TabIndex = 9;
+            this.labelTotal.Text = "label3";
+            // 
+            // button1
+            // 
+            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button1.Location = new System.Drawing.Point(800, 401);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(54, 49);
+            this.button1.TabIndex = 10;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Verbos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(884, 491);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.labelTotal);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtMeaning);
@@ -226,6 +250,8 @@
         private System.Windows.Forms.Label labelCantidadFallos;
         private System.Windows.Forms.Label labelCantidadAciertos;
         private System.Windows.Forms.Label labelCantidadVerbos;
+        private System.Windows.Forms.Label labelTotal;
+        private System.Windows.Forms.Button button1;
     }
 }
 
