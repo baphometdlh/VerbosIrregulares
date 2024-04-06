@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Verbos));
             this.btnStart = new System.Windows.Forms.Button();
             this.btnFinish = new System.Windows.Forms.Button();
             this.txtAnswer = new System.Windows.Forms.TextBox();
@@ -35,6 +36,14 @@
             this.txtMeaning = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.labelVerb = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.labelAcierto = new System.Windows.Forms.Label();
+            this.labelFallo = new System.Windows.Forms.Label();
+            this.labelCantidadVerbos = new System.Windows.Forms.Label();
+            this.labelCantidadAciertos = new System.Windows.Forms.Label();
+            this.labelCantidadFallos = new System.Windows.Forms.Label();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnStart
@@ -106,11 +115,82 @@
             this.label2.TabIndex = 6;
             this.label2.Text = "MEANING";
             // 
+            // labelVerb
+            // 
+            this.labelVerb.AutoSize = true;
+            this.labelVerb.Font = new System.Drawing.Font("Courier New", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelVerb.Location = new System.Drawing.Point(41, 34);
+            this.labelVerb.Name = "labelVerb";
+            this.labelVerb.Size = new System.Drawing.Size(79, 20);
+            this.labelVerb.TabIndex = 7;
+            this.labelVerb.Text = "VERBOS:";
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.panel1.Controls.Add(this.labelCantidadFallos);
+            this.panel1.Controls.Add(this.labelCantidadAciertos);
+            this.panel1.Controls.Add(this.labelCantidadVerbos);
+            this.panel1.Controls.Add(this.labelFallo);
+            this.panel1.Controls.Add(this.labelAcierto);
+            this.panel1.Controls.Add(this.labelVerb);
+            this.panel1.Location = new System.Drawing.Point(621, 79);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(233, 188);
+            this.panel1.TabIndex = 8;
+            // 
+            // labelAcierto
+            // 
+            this.labelAcierto.AutoSize = true;
+            this.labelAcierto.Font = new System.Drawing.Font("Courier New", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelAcierto.Location = new System.Drawing.Point(21, 87);
+            this.labelAcierto.Name = "labelAcierto";
+            this.labelAcierto.Size = new System.Drawing.Size(99, 20);
+            this.labelAcierto.TabIndex = 8;
+            this.labelAcierto.Text = "ACIERTOS:";
+            // 
+            // labelFallo
+            // 
+            this.labelFallo.AutoSize = true;
+            this.labelFallo.Font = new System.Drawing.Font("Courier New", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelFallo.Location = new System.Drawing.Point(41, 139);
+            this.labelFallo.Name = "labelFallo";
+            this.labelFallo.Size = new System.Drawing.Size(79, 20);
+            this.labelFallo.TabIndex = 9;
+            this.labelFallo.Text = "FALLOS:";
+            // 
+            // labelCantidadVerbos
+            // 
+            this.labelCantidadVerbos.AutoSize = true;
+            this.labelCantidadVerbos.Location = new System.Drawing.Point(146, 38);
+            this.labelCantidadVerbos.Name = "labelCantidadVerbos";
+            this.labelCantidadVerbos.Size = new System.Drawing.Size(44, 16);
+            this.labelCantidadVerbos.TabIndex = 10;
+            this.labelCantidadVerbos.Text = "label3";
+            // 
+            // labelCantidadAciertos
+            // 
+            this.labelCantidadAciertos.AutoSize = true;
+            this.labelCantidadAciertos.Location = new System.Drawing.Point(146, 91);
+            this.labelCantidadAciertos.Name = "labelCantidadAciertos";
+            this.labelCantidadAciertos.Size = new System.Drawing.Size(44, 16);
+            this.labelCantidadAciertos.TabIndex = 11;
+            this.labelCantidadAciertos.Text = "label4";
+            // 
+            // labelCantidadFallos
+            // 
+            this.labelCantidadFallos.AutoSize = true;
+            this.labelCantidadFallos.Location = new System.Drawing.Point(146, 143);
+            this.labelCantidadFallos.Name = "labelCantidadFallos";
+            this.labelCantidadFallos.Size = new System.Drawing.Size(44, 16);
+            this.labelCantidadFallos.TabIndex = 12;
+            this.labelCantidadFallos.Text = "label5";
+            // 
             // Verbos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(700, 491);
+            this.ClientSize = new System.Drawing.Size(884, 491);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtMeaning);
@@ -118,8 +198,13 @@
             this.Controls.Add(this.txtAnswer);
             this.Controls.Add(this.btnFinish);
             this.Controls.Add(this.btnStart);
+            this.Controls.Add(this.panel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Verbos";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Verbos";
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -134,6 +219,13 @@
         private System.Windows.Forms.TextBox txtMeaning;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label labelVerb;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label labelFallo;
+        private System.Windows.Forms.Label labelAcierto;
+        private System.Windows.Forms.Label labelCantidadFallos;
+        private System.Windows.Forms.Label labelCantidadAciertos;
+        private System.Windows.Forms.Label labelCantidadVerbos;
     }
 }
 

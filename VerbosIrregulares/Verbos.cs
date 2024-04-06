@@ -15,6 +15,10 @@ namespace VerbosIrregulares
         private int attempts;
         private int correctAnswers;
         private int incorrectAnswers;
+        //nuevo
+        private HashSet<int> usedIndices;
+        private int totalVerbs;
+        private int verbsShown;
 
         public Verbos()
         {
@@ -22,34 +26,49 @@ namespace VerbosIrregulares
             InitializeExcel();
             LoadVerbs();
             random = new Random();
+            //nuevo
+            usedIndices = new HashSet<int>();
+            totalVerbs = verbs.Count;
+            verbsShown = 0;
+            labelCantidadVerbos.Text = "0";
+            labelCantidadAciertos.Text = "0";
+            labelCantidadFallos.Text = "0";
         }
 
         private void InitializeExcel()
         {
-
-            ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
-
-            // Abre el archivo Excel usando EPPlus
-            string excelPath = @"..\..\..\excel\verbosIrregulares.xlsx";
-            FileInfo excelFile = new FileInfo(excelPath);
-            using (ExcelPackage package = new ExcelPackage(excelFile))
+            try
             {
-                ExcelWorksheet worksheet = package.Workbook.Worksheets["COMPLETO"];
-                int rowCount = worksheet.Dimension.Rows;
-                verbs = new List<Verb>();
+                ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
 
-                for (int row = 2; row <= 46; row++)
+                // Abre el archivo Excel usando EPPlus
+                string excelPath = @"..\..\..\excel\verbosIrregulares.xlsx";
+                FileInfo excelFile = new FileInfo(excelPath);
+                using (ExcelPackage package = new ExcelPackage(excelFile))
                 {
-                    Verb verb = new Verb
+                    ExcelWorksheet worksheet = package.Workbook.Worksheets["COMPLETO"];
+                    int rowCount = worksheet.Dimension.Rows;
+                    verbs = new List<Verb>();
+
+                    for (int row = 2; row <= 48; row++)
                     {
-                        Infinitive = worksheet.Cells[row, 1].Value.ToString(),
-                        SimplePast = worksheet.Cells[row, 2].Value.ToString(),
-                        PastParticiple = worksheet.Cells[row, 3].Value.ToString(),
-                        Meaning = worksheet.Cells[row, 4].Value.ToString()
-                    };
-                    verbs.Add(verb);
+                        Verb verb = new Verb
+                        {
+                            Infinitive = worksheet.Cells[row, 1].Value.ToString(),
+                            SimplePast = worksheet.Cells[row, 2].Value.ToString(),
+                            PastParticiple = worksheet.Cells[row, 3].Value.ToString(),
+                            Meaning = worksheet.Cells[row, 4].Value.ToString()
+                        };
+                        verbs.Add(verb);
+                    }
                 }
             }
+            catch (Exception e)
+            {
+
+                MessageBox.Show("algún problema cargando el excel", e.Message);
+            }
+
         }
 
         private void LoadVerbs()
@@ -60,67 +79,124 @@ namespace VerbosIrregulares
 
         private void ShowRandomVerb()
         {
-            // Muestra un verbo aleatorio en la etiqueta lblVerb
-            currentVerbIndex = random.Next(verbs.Count);
-            lblVerb.Text = verbs[currentVerbIndex].Infinitive;
+            try
+            {
+                // Muestra un verbo aleatorio que no se haya mostrado antes
+                int randomIndex = random.Next(totalVerbs);
+                while (usedIndices.Contains(randomIndex))
+                {
+                    randomIndex = random.Next(totalVerbs);
+                }
+                usedIndices.Add(randomIndex);
+
+                Verb currentVerb = verbs[randomIndex];
+                lblVerb.Text = currentVerb.Infinitive;
+                verbsShown++;
+                labelCantidadVerbos.Text = verbsShown.ToString();
+
+                if (verbsShown >= totalVerbs)
+                {
+                    ShowResult();
+                }
+            }
+            catch (Exception e)
+            {
+
+                MessageBox.Show("Problema a la hora de mostrar un verbo", e.Message);
+            }
+
         }
 
-        private void CheckAnswer(string answer)
+        private void ShowResult()
         {
-            // Verifica si ambas respuestas del usuario son correctas
-            Verb currentVerb = verbs[currentVerbIndex];
-            bool simplePastCorrect = txtAnswer.Text.ToLower() == currentVerb.SimplePast.ToLower();
-            bool meaningCorrect = txtMeaning.Text.ToLower() == currentVerb.Meaning.ToLower();
+            // Muestra el resultado del juego y cierra la aplicación
+            MessageBox.Show($"Palabras intentadas: {correctAnswers + incorrectAnswers}\n" +
+                            $"Respuestas correctas: {correctAnswers}\n" +
+                            $"Respuestas incorrectas: {incorrectAnswers}");
+            this.Close();
+        }
 
-            if (simplePastCorrect && meaningCorrect)
+        private void CheckAnswers()
+        {
+            try
             {
-                MessageBox.Show("¡Ambas respuestas son correctas!");
-                correctAnswers++;
-                attempts = 0;
-                ShowRandomVerb();
-                ClearTextFields();
-                txtMeaning.Focus();
+                // Verifica si ambas respuestas del usuario son correctas
+                Verb currentVerb = verbs.FirstOrDefault(v => v.Infinitive == lblVerb.Text);
+
+                if (currentVerb != null)
+                {
+                    bool simplePastCorrect = txtAnswer.Text.ToLower() == currentVerb.SimplePast.ToLower();
+                    bool meaningCorrect = txtMeaning.Text.ToLower() == currentVerb.Meaning.ToLower();
+
+                    if (simplePastCorrect && meaningCorrect)
+                    {
+                        MessageBox.Show("¡Ambas respuestas son correctas!");
+                        correctAnswers++;
+                        labelCantidadAciertos.Text = correctAnswers.ToString();
+                        attempts = 0;
+                        if (verbsShown <= totalVerbs)
+                        {
+                            ShowRandomVerb();
+                        }
+                        else
+                        {
+                            ShowResult();
+                        }
+                        ClearTextFields();
+                    }
+                    else
+                    {
+                        attempts++;
+                        if (attempts == 3)
+                        {
+                            MessageBox.Show($"Respuestas incorrectas. La respuesta correcta es: {currentVerb.SimplePast} - {currentVerb.Meaning}");
+                            incorrectAnswers++;
+                            labelCantidadFallos.Text = incorrectAnswers.ToString();
+                            attempts = 0;
+                            if (verbsShown <= totalVerbs)
+                            {
+                                ShowRandomVerb();
+                            }
+                            else
+                            {
+                                ShowResult();
+                            }
+                            //ShowRandomVerb();
+                            ClearTextFields();
+                        }
+                        else
+                        {
+                            MessageBox.Show("ERROR");
+                            ClearTextFields();
+                        }
+                    }
+                }
             }
-            else
+            catch (Exception e)
             {
-                attempts++;
-                if (attempts == 3)
-                {
-                    MessageBox.Show($"Respuestas incorrectas. La respuesta correcta es: {currentVerb.SimplePast} - {currentVerb.Meaning}");
-                    incorrectAnswers++;
-                    attempts = 0;
-                    ShowRandomVerb();
-                    ClearTextFields();
-                    txtMeaning.Focus();
-                }
-                else
-                {
-                    MessageBox.Show("ERROR");
-                    ClearTextFields();
-                    txtMeaning.Focus();
-                }
+                MessageBox.Show("Problema a la hora de verificar las respuestas", e.Message);
             }
+            
+
         }
 
         private void btnStart_Click_1(object sender, EventArgs e)
         {
             // Comienza el cuestionario
-            ShowRandomVerb();
             btnStart.Enabled = false;
             txtAnswer.Enabled = true;
-            txtAnswer.Visible = true;
             txtMeaning.Enabled = true;
             btnFinish.Enabled = true;
+            ShowRandomVerb();
             lblVerb.Visible = true;
+            btnStart.Enabled = true;
+            txtMeaning.Focus();
         }
 
         private void btnFinish_Click_1(object sender, EventArgs e)
         {
             // Muestra el resumen y cierra la aplicación
-            MessageBox.Show($"Palabras intentadas: {correctAnswers + incorrectAnswers}\n" +
-                            $"Respuestas correctas: {correctAnswers}\n" +
-                            $"Respuestas incorrectas: {incorrectAnswers}");
-            this.Close();
+            ShowResult();
         }
 
         private void txtAnswer_KeyDown_1(object sender, KeyEventArgs e)
@@ -128,7 +204,8 @@ namespace VerbosIrregulares
             // Verifica la respuesta del usuario cuando presiona Enter
             if (e.KeyCode == Keys.Enter)
             {
-                CheckAnswer(txtAnswer.Text);
+                CheckAnswers();
+                txtMeaning.Focus();
             }
         }
 
