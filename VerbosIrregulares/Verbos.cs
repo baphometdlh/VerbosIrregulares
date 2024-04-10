@@ -83,6 +83,14 @@ namespace VerbosIrregulares
         {
             try
             {
+                //nuevo
+                if (usedIndices.Count >= totalVerbs)
+                {
+                    ShowResult();
+                    return;
+                }
+
+                //el resto que ya estaba
                 // Muestra un verbo aleatorio que no se haya mostrado antes
                 int randomIndex = random.Next(totalVerbs);
                 while (usedIndices.Contains(randomIndex))
@@ -96,10 +104,10 @@ namespace VerbosIrregulares
                 verbsShown++;
                 //labelCantidadVerbos.Text = verbsShown.ToString();
 
-                if (verbsShown >= totalVerbs)
+                /*if (verbsShown >= totalVerbs)
                 {
                     ShowResult();
-                }
+                }*/
             }
             catch (Exception e)
             {
@@ -137,7 +145,7 @@ namespace VerbosIrregulares
                         correctAnswers++;
                         labelCantidadAciertos.Text = correctAnswers.ToString();
                         attempts = 0;
-                        if (verbsShown <= totalVerbs)
+                        if (verbsShown < totalVerbs)
                         {
                             ShowRandomVerb();
                         }
@@ -150,13 +158,13 @@ namespace VerbosIrregulares
                     else
                     {
                         attempts++;
-                        if (attempts == 3)
+                        if (attempts == 1)
                         {
                             MessageBox.Show($"Respuestas incorrectas. La respuesta correcta es: {currentVerb.SimplePast} - {currentVerb.PastParticiple} - {currentVerb.Meaning} ");
                             incorrectAnswers++;
                             labelCantidadFallos.Text = incorrectAnswers.ToString();
                             attempts = 0;
-                            if (verbsShown <= totalVerbs)
+                            if (verbsShown < totalVerbs)
                             {
                                 ShowRandomVerb();
                             }
