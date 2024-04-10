@@ -38,21 +38,24 @@
             this.label2 = new System.Windows.Forms.Label();
             this.labelVerb = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.labelAcierto = new System.Windows.Forms.Label();
-            this.labelFallo = new System.Windows.Forms.Label();
-            this.labelCantidadVerbos = new System.Windows.Forms.Label();
-            this.labelCantidadAciertos = new System.Windows.Forms.Label();
             this.labelCantidadFallos = new System.Windows.Forms.Label();
+            this.labelCantidadAciertos = new System.Windows.Forms.Label();
+            this.labelCantidadVerbos = new System.Windows.Forms.Label();
+            this.labelFallo = new System.Windows.Forms.Label();
+            this.labelAcierto = new System.Windows.Forms.Label();
             this.labelTotal = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.textPParticiple = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnStart
             // 
-            this.btnStart.Location = new System.Drawing.Point(160, 312);
+            this.btnStart.Location = new System.Drawing.Point(157, 282);
+            this.btnStart.Margin = new System.Windows.Forms.Padding(2);
             this.btnStart.Name = "btnStart";
-            this.btnStart.Size = new System.Drawing.Size(138, 87);
+            this.btnStart.Size = new System.Drawing.Size(104, 71);
             this.btnStart.TabIndex = 0;
             this.btnStart.Text = "EMPEZAR";
             this.btnStart.UseVisualStyleBackColor = true;
@@ -60,9 +63,10 @@
             // 
             // btnFinish
             // 
-            this.btnFinish.Location = new System.Drawing.Point(440, 312);
+            this.btnFinish.Location = new System.Drawing.Point(327, 279);
+            this.btnFinish.Margin = new System.Windows.Forms.Padding(2);
             this.btnFinish.Name = "btnFinish";
-            this.btnFinish.Size = new System.Drawing.Size(134, 91);
+            this.btnFinish.Size = new System.Drawing.Size(100, 74);
             this.btnFinish.TabIndex = 1;
             this.btnFinish.Text = "TERMINAR";
             this.btnFinish.UseVisualStyleBackColor = true;
@@ -71,9 +75,10 @@
             // txtAnswer
             // 
             this.txtAnswer.Font = new System.Drawing.Font("Courier New", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAnswer.Location = new System.Drawing.Point(190, 199);
+            this.txtAnswer.Location = new System.Drawing.Point(157, 162);
+            this.txtAnswer.Margin = new System.Windows.Forms.Padding(2);
             this.txtAnswer.Name = "txtAnswer";
-            this.txtAnswer.Size = new System.Drawing.Size(316, 38);
+            this.txtAnswer.Size = new System.Drawing.Size(238, 32);
             this.txtAnswer.TabIndex = 2;
             this.txtAnswer.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtAnswer_KeyDown_1);
             // 
@@ -81,9 +86,10 @@
             // 
             this.lblVerb.AutoSize = true;
             this.lblVerb.Font = new System.Drawing.Font("Courier New", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblVerb.Location = new System.Drawing.Point(203, 45);
+            this.lblVerb.Location = new System.Drawing.Point(167, 37);
+            this.lblVerb.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblVerb.Name = "lblVerb";
-            this.lblVerb.Size = new System.Drawing.Size(150, 41);
+            this.lblVerb.Size = new System.Drawing.Size(123, 34);
             this.lblVerb.TabIndex = 3;
             this.lblVerb.Text = "label1";
             this.lblVerb.Visible = false;
@@ -91,9 +97,10 @@
             // txtMeaning
             // 
             this.txtMeaning.Font = new System.Drawing.Font("Courier New", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMeaning.Location = new System.Drawing.Point(190, 129);
+            this.txtMeaning.Location = new System.Drawing.Point(157, 105);
+            this.txtMeaning.Margin = new System.Windows.Forms.Padding(2);
             this.txtMeaning.Name = "txtMeaning";
-            this.txtMeaning.Size = new System.Drawing.Size(316, 38);
+            this.txtMeaning.Size = new System.Drawing.Size(238, 32);
             this.txtMeaning.TabIndex = 4;
             this.txtMeaning.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtMeaning_KeyDown);
             // 
@@ -101,9 +108,10 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Courier New", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(33, 209);
+            this.label1.Location = new System.Drawing.Point(40, 170);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(131, 21);
+            this.label1.Size = new System.Drawing.Size(107, 17);
             this.label1.TabIndex = 5;
             this.label1.Text = "PAST SIMPLE";
             // 
@@ -111,9 +119,10 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Courier New", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(77, 139);
+            this.label2.Location = new System.Drawing.Point(73, 113);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(87, 21);
+            this.label2.Size = new System.Drawing.Size(71, 17);
             this.label2.TabIndex = 6;
             this.label2.Text = "MEANING";
             // 
@@ -121,9 +130,10 @@
             // 
             this.labelVerb.AutoSize = true;
             this.labelVerb.Font = new System.Drawing.Font("Courier New", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelVerb.Location = new System.Drawing.Point(41, 34);
+            this.labelVerb.Location = new System.Drawing.Point(31, 28);
+            this.labelVerb.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelVerb.Name = "labelVerb";
-            this.labelVerb.Size = new System.Drawing.Size(79, 20);
+            this.labelVerb.Size = new System.Drawing.Size(63, 16);
             this.labelVerb.TabIndex = 7;
             this.labelVerb.Text = "VERBOS:";
             // 
@@ -136,64 +146,71 @@
             this.panel1.Controls.Add(this.labelFallo);
             this.panel1.Controls.Add(this.labelAcierto);
             this.panel1.Controls.Add(this.labelVerb);
-            this.panel1.Location = new System.Drawing.Point(621, 79);
+            this.panel1.Location = new System.Drawing.Point(481, 64);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(233, 188);
+            this.panel1.Size = new System.Drawing.Size(175, 153);
             this.panel1.TabIndex = 8;
             // 
-            // labelAcierto
+            // labelCantidadFallos
             // 
-            this.labelAcierto.AutoSize = true;
-            this.labelAcierto.Font = new System.Drawing.Font("Courier New", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelAcierto.Location = new System.Drawing.Point(21, 87);
-            this.labelAcierto.Name = "labelAcierto";
-            this.labelAcierto.Size = new System.Drawing.Size(99, 20);
-            this.labelAcierto.TabIndex = 8;
-            this.labelAcierto.Text = "ACIERTOS:";
+            this.labelCantidadFallos.AutoSize = true;
+            this.labelCantidadFallos.Location = new System.Drawing.Point(110, 116);
+            this.labelCantidadFallos.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelCantidadFallos.Name = "labelCantidadFallos";
+            this.labelCantidadFallos.Size = new System.Drawing.Size(35, 13);
+            this.labelCantidadFallos.TabIndex = 12;
+            this.labelCantidadFallos.Text = "label5";
+            // 
+            // labelCantidadAciertos
+            // 
+            this.labelCantidadAciertos.AutoSize = true;
+            this.labelCantidadAciertos.Location = new System.Drawing.Point(110, 74);
+            this.labelCantidadAciertos.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelCantidadAciertos.Name = "labelCantidadAciertos";
+            this.labelCantidadAciertos.Size = new System.Drawing.Size(35, 13);
+            this.labelCantidadAciertos.TabIndex = 11;
+            this.labelCantidadAciertos.Text = "label4";
+            // 
+            // labelCantidadVerbos
+            // 
+            this.labelCantidadVerbos.AutoSize = true;
+            this.labelCantidadVerbos.Location = new System.Drawing.Point(110, 31);
+            this.labelCantidadVerbos.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelCantidadVerbos.Name = "labelCantidadVerbos";
+            this.labelCantidadVerbos.Size = new System.Drawing.Size(35, 13);
+            this.labelCantidadVerbos.TabIndex = 10;
+            this.labelCantidadVerbos.Text = "label3";
             // 
             // labelFallo
             // 
             this.labelFallo.AutoSize = true;
             this.labelFallo.Font = new System.Drawing.Font("Courier New", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelFallo.Location = new System.Drawing.Point(41, 139);
+            this.labelFallo.Location = new System.Drawing.Point(31, 113);
+            this.labelFallo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelFallo.Name = "labelFallo";
-            this.labelFallo.Size = new System.Drawing.Size(79, 20);
+            this.labelFallo.Size = new System.Drawing.Size(63, 16);
             this.labelFallo.TabIndex = 9;
             this.labelFallo.Text = "FALLOS:";
             // 
-            // labelCantidadVerbos
+            // labelAcierto
             // 
-            this.labelCantidadVerbos.AutoSize = true;
-            this.labelCantidadVerbos.Location = new System.Drawing.Point(146, 38);
-            this.labelCantidadVerbos.Name = "labelCantidadVerbos";
-            this.labelCantidadVerbos.Size = new System.Drawing.Size(44, 16);
-            this.labelCantidadVerbos.TabIndex = 10;
-            this.labelCantidadVerbos.Text = "label3";
-            // 
-            // labelCantidadAciertos
-            // 
-            this.labelCantidadAciertos.AutoSize = true;
-            this.labelCantidadAciertos.Location = new System.Drawing.Point(146, 91);
-            this.labelCantidadAciertos.Name = "labelCantidadAciertos";
-            this.labelCantidadAciertos.Size = new System.Drawing.Size(44, 16);
-            this.labelCantidadAciertos.TabIndex = 11;
-            this.labelCantidadAciertos.Text = "label4";
-            // 
-            // labelCantidadFallos
-            // 
-            this.labelCantidadFallos.AutoSize = true;
-            this.labelCantidadFallos.Location = new System.Drawing.Point(146, 143);
-            this.labelCantidadFallos.Name = "labelCantidadFallos";
-            this.labelCantidadFallos.Size = new System.Drawing.Size(44, 16);
-            this.labelCantidadFallos.TabIndex = 12;
-            this.labelCantidadFallos.Text = "label5";
+            this.labelAcierto.AutoSize = true;
+            this.labelAcierto.Font = new System.Drawing.Font("Courier New", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelAcierto.Location = new System.Drawing.Point(16, 71);
+            this.labelAcierto.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelAcierto.Name = "labelAcierto";
+            this.labelAcierto.Size = new System.Drawing.Size(79, 16);
+            this.labelAcierto.TabIndex = 8;
+            this.labelAcierto.Text = "ACIERTOS:";
             // 
             // labelTotal
             // 
             this.labelTotal.AutoSize = true;
-            this.labelTotal.Location = new System.Drawing.Point(618, 45);
+            this.labelTotal.Location = new System.Drawing.Point(479, 37);
+            this.labelTotal.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelTotal.Name = "labelTotal";
-            this.labelTotal.Size = new System.Drawing.Size(44, 16);
+            this.labelTotal.Size = new System.Drawing.Size(35, 13);
             this.labelTotal.TabIndex = 9;
             this.labelTotal.Text = "label3";
             // 
@@ -201,18 +218,42 @@
             // 
             this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
             this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button1.Location = new System.Drawing.Point(800, 401);
+            this.button1.Location = new System.Drawing.Point(615, 326);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(54, 49);
+            this.button1.Size = new System.Drawing.Size(40, 40);
             this.button1.TabIndex = 10;
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // textPParticiple
+            // 
+            this.textPParticiple.Font = new System.Drawing.Font("Courier New", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textPParticiple.Location = new System.Drawing.Point(157, 216);
+            this.textPParticiple.Margin = new System.Windows.Forms.Padding(2);
+            this.textPParticiple.Name = "textPParticiple";
+            this.textPParticiple.Size = new System.Drawing.Size(238, 32);
+            this.textPParticiple.TabIndex = 11;
+            this.textPParticiple.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textPParticiple_KeyDown);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Courier New", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(26, 225);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(125, 17);
+            this.label3.TabIndex = 12;
+            this.label3.Text = "P. PARTICIPLE";
+            // 
             // Verbos
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(884, 491);
+            this.ClientSize = new System.Drawing.Size(705, 399);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.textPParticiple);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.labelTotal);
             this.Controls.Add(this.label2);
@@ -224,6 +265,7 @@
             this.Controls.Add(this.btnStart);
             this.Controls.Add(this.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Verbos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Verbos";
@@ -252,6 +294,8 @@
         private System.Windows.Forms.Label labelCantidadVerbos;
         private System.Windows.Forms.Label labelTotal;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox textPParticiple;
+        private System.Windows.Forms.Label label3;
     }
 }
 

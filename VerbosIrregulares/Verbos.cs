@@ -94,7 +94,7 @@ namespace VerbosIrregulares
                 Verb currentVerb = verbs[randomIndex];
                 lblVerb.Text = currentVerb.Infinitive;
                 verbsShown++;
-                labelCantidadVerbos.Text = verbsShown.ToString();
+                //labelCantidadVerbos.Text = verbsShown.ToString();
 
                 if (verbsShown >= totalVerbs)
                 {
@@ -129,10 +129,11 @@ namespace VerbosIrregulares
                 {
                     bool simplePastCorrect = txtAnswer.Text.ToLower() == currentVerb.SimplePast.ToLower();
                     bool meaningCorrect = txtMeaning.Text.ToLower() == currentVerb.Meaning.ToLower();
+                    bool pastParticipleCorrect = textPParticiple.Text.ToLower() == currentVerb.PastParticiple.ToLower();
 
-                    if (simplePastCorrect && meaningCorrect)
+                    if (simplePastCorrect && meaningCorrect && pastParticipleCorrect)
                     {
-                        MessageBox.Show("¡Ambas respuestas son correctas!");
+                        MessageBox.Show("¡CORRECTO!");
                         correctAnswers++;
                         labelCantidadAciertos.Text = correctAnswers.ToString();
                         attempts = 0;
@@ -151,7 +152,7 @@ namespace VerbosIrregulares
                         attempts++;
                         if (attempts == 3)
                         {
-                            MessageBox.Show($"Respuestas incorrectas. La respuesta correcta es: {currentVerb.SimplePast} - {currentVerb.Meaning}");
+                            MessageBox.Show($"Respuestas incorrectas. La respuesta correcta es: {currentVerb.SimplePast} - {currentVerb.PastParticiple} - {currentVerb.Meaning} ");
                             incorrectAnswers++;
                             labelCantidadFallos.Text = incorrectAnswers.ToString();
                             attempts = 0;
@@ -172,6 +173,8 @@ namespace VerbosIrregulares
                             ClearTextFields();
                         }
                     }
+                    int total = correctAnswers + incorrectAnswers;
+                    labelCantidadVerbos.Text = total.ToString();
                 }
             }
             catch (Exception e)
@@ -188,6 +191,7 @@ namespace VerbosIrregulares
             btnStart.Enabled = false;
             txtAnswer.Enabled = true;
             txtMeaning.Enabled = true;
+            textPParticiple.Enabled = true;
             btnFinish.Enabled = true;
             ShowRandomVerb();
             lblVerb.Visible = true;
@@ -206,8 +210,7 @@ namespace VerbosIrregulares
             // Verifica la respuesta del usuario cuando presiona Enter
             if (e.KeyCode == Keys.Enter)
             {
-                CheckAnswers();
-                txtMeaning.Focus();
+                textPParticiple.Focus();
             }
         }
 
@@ -219,17 +222,30 @@ namespace VerbosIrregulares
             }
         }
 
+        private void textPParticiple_KeyDown(object sender, KeyEventArgs e)
+        {
+            // Verifica la respuesta del usuario cuando presiona Enter
+            if (e.KeyCode == Keys.Enter)
+            {
+                CheckAnswers();
+                txtMeaning.Focus();
+            }
+        }
+
         private void ClearTextFields()
         {
             // Limpia los TextBox
             txtAnswer.Clear();
             txtMeaning.Clear();
+            textPParticiple.Clear();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
         }
+
+
     }
 
     public class Verb
