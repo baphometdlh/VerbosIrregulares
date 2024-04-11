@@ -48,7 +48,7 @@ namespace VerbosIrregulares
 
                 using (ExcelPackage package = new ExcelPackage(excelFile))
                 {
-                    ExcelWorksheet worksheet = package.Workbook.Worksheets["COMPLETO"];
+                    ExcelWorksheet worksheet = package.Workbook.Worksheets[0];
                     int rowCount = worksheet.Dimension.Rows;
                     verbs = new List<Verb>();
 
